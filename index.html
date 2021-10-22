@@ -17,24 +17,26 @@
     </body>
     <script>
         mySpec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A scatterplot showing horsepower and miles per gallons that opens a Google search for the car that you click on.",
-  "data": {"url": "building_inventory.csv"},
-  "mark": "point",
-  "transform": [
-    {
-      "calculate": "'https://www.google.com/search?q=' + datum.Name",
-      "as": "url"
-    }
-  ],
-  "encoding": {
-    "x": {"field": "Square Footage", "type": "quantitative"},
-    "y": {"field": "Total Floors", "type": "quantitative"},
-    "color": {"field": "Bldg Status", "type": "nominal"},
-    "tooltip": {"field": "Agency Name", "type": "nominal"},
-    "href": {"field": "url", "type": "nominal"}
-  }
-};
+            "width": 600,
+            "height": 600,
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "description": "A scatterplot showing horsepower and miles per gallons that opens a Google search for the car that you click on.",
+            "data": {"url": "building_inventory.csv"},
+            "mark": "point",
+            "transform": [
+            {
+                "calculate": "'https://www.google.com/search?q=' + datum.Name",
+                "as": "url"
+            }
+            ],
+            "encoding": {
+                "x": {"field": "Square Footage", "type": "quantitative"},
+                "y": {"field": "Total Floors", "type": "quantitative"},
+                "color": {"field": "Bldg Status", "type": "nominal"},
+                "tooltip": {"field": "Agency Name", "type": "nominal"},
+                "href": {"field": "url", "type": "nominal"}
+            }
+        };
         vegaEmbed('#myviz', mySpec);
     </script>
 </html>
